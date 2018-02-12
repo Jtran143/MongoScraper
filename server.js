@@ -83,10 +83,8 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(html);
     $("article").each(function(i, element) {
 
-      // Save an empty result object
       var result = {};
 
-      // Add the title and summary of every link, and save them as properties of the result object
       result.title = $(this).children("h2").text();
       result.summary = $(this).children(".summary").text();
       result.link = $(this).children("h2").children("a").attr("href");
